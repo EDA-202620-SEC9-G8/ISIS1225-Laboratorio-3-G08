@@ -129,17 +129,25 @@ def load_books_tags(catalog):
 
 # Funciones de consulta sobre el catálogo
 
+
 def get_books_by_author(catalog, author_name):
     """
     Retorna los libros de un autor
     """
+    start_time = time.time()
+    
     pos_author = lt.is_present(
         catalog['authors'], author_name, compare_authors)
+        
     if pos_author > 0:
         author = lt.get_element(catalog['authors'], pos_author)
-        return author
-    return None
-
+        end_time = time.time()
+        # Retornamos los DOS valores que espera view.py
+        return author, (end_time - start_time)
+    
+    end_time = time.time()
+    # Retornamos None y el tiempo para que view.py no falle al desempaquetar
+    return None, (end_time - start_time)
 
 def get_best_book(catalog):
     """
