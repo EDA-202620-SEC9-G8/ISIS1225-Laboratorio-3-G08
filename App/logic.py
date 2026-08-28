@@ -155,8 +155,8 @@ def get_best_book(catalog):
     if lt.size(catalog['books']) == 0:
         return None, 0
     
-    best_book = lt.get_element(catalog['books'], 1)
-    for book_pos in range(2, lt.size(catalog['books']) + 1):
+    best_book = lt.get_element(catalog['books'], 0)
+    for book_pos in range(1, lt.size(catalog['books'])):
         book = lt.get_element(catalog['books'], book_pos)
         if compare_ratings(book, best_book):
             best_book = book

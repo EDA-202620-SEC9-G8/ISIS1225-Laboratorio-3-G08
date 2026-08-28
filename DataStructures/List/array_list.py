@@ -37,8 +37,8 @@ def last_element(my_list):
     return my_list["elements"][my_list["size"] - 1]
 def is_empty(my_list):
     return my_list["size"] == 0
-def get_element(my_list, pos):
-    return my_list["elements"][pos]
+def get_elements(my_list, pos):
+    return my_list["elements"][pos]      
 def delete_element(my_list, pos):
     del my_list["elements"][pos]
     my_list["size"] -= 1
