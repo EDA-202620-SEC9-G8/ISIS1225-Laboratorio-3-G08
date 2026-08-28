@@ -44,9 +44,12 @@ def delete_element(my_list, pos):
     my_list["size"] -= 1
     return my_list
 def remove_first(my_list):
-    del my_list["elements"][0]
-    my_list["size"] -= 1
-    return my_list
+def remove_first(lista):
+    if lista["size"] == 0 or not lista["elements"]:
+        return None
+    elemento_eliminado = lista["elements"].pop(0)
+    lista["size"] -= 1
+    return elemento_eliminado
 def remove_last(my_list):
     del my_list["elements"][my_list["size"] - 1]
     my_list["size"] -= 1

@@ -118,12 +118,16 @@ def test_get_element():
 @handle_not_implemented
 def test_remove_first():
     lista = setup_tests()
-
     lista["size"] = 3
     lista["elements"] = [1, 2, 3]
 
-    assert lt.remove_first(lista) is not None
-    assert type(lt.remove_first(lista)) == int
+    elemento_eliminado = lt.remove_first(lista)
+
+    assert elemento_eliminado is not None
+    assert type(elemento_eliminado) == int
+    assert elemento_eliminado == 1  
+    assert lista["size"] == 2
+    assert lista["elements"] == [2, 3]
 
 
 @handle_not_implemented
